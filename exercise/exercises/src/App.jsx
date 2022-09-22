@@ -31,7 +31,7 @@ class App extends React.Component {
         return colorItem.includes(filter)
     });
 
-    const createListLi = colorList.map((color) => {
+    const createListLi = filteredColors.map((color) => {
         return <li key={color.number}>
             { color.color } o numero é { `${color.number}` } 
         </li>
