@@ -71,13 +71,19 @@
       const btnNext = document.querySelector('#next');
 
       btnPrev.addEventListener('click', () => {
-       state.dispatch({type: 'PREVIOUS_COLOR' })
+       store.dispatch({type: 'PREVIOUS_COLOR' })
       })
 
       btnNext.addEventListener('click', () => {
-       state.dispatch({type: 'NEXT_COLOR'})
+       store.dispatch({type: 'NEXT_COLOR'})
       })
 
+      store.subscribe(() => {
+        const { colors, index } = store.getState();
+
+        document.querySelector('#value').innerHTML = colors[index];
+        document.querySelector('#container').style.backgroundColor = colors[index];
+      })
 
     </script>
   </body>
